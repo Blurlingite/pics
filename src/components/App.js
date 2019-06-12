@@ -3,6 +3,7 @@ import React from "react";
 // We put all the common axios stuff in the unsplash.js file in the "api" folder, so instead of importing the whole axios library like we did above, we'll just import that file. Now we will use unsplash.get() for example instead of axios.get()
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
+import ImageList from "./ImageList";
 
 class App extends React.Component {
   // when we expect multiple results from an API call (like a list of images) we should initialize it on our state with an empty array (or object if you are expecting multiple objects back, but the Unsplash API gives back an array)
@@ -30,7 +31,7 @@ class App extends React.Component {
       <div className="ui container" style={{ marginTop: "10px" }}>
         {/* We pass it a custom named prop called onSubmission so we can pass the onSearchSubmit function to child components */}
         <SearchBar onSubmission={this.onSearchSubmit} />
-        Found {this.state.images.length} images
+        <ImageList images={this.state.images} />
       </div>
     );
   }
