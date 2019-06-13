@@ -29,7 +29,18 @@ class App extends React.Component {
   render() {
     return (
       <div className="ui container" style={{ marginTop: "10px" }}>
-        {/* We pass it a custom named prop called onSubmission so we can pass the onSearchSubmit function to child components */}
+        {/* We pass it a custom named prop called onSubmission so we can pass the onSearchSubmit function to child components
+        
+        This is also how we can pass stuff from the child (SearchBar) to the parent (App)
+
+        We pass in onSubmission callback function into the child. The child will call that callback (in SearchBar where it says <form onSubmit={this.onFormSubmit} className="ui form">
+        
+        the onFormSubmit() uses the onSubmission prop the parent passed into the child here
+        this.props.onSubmission(this.state.term);
+        )
+
+        When the child calls that callback, it uses it so onSubmission will return something to the parent (App). If this part is confusing do some research on passing info from a child component to a parent component
+        */}
         <SearchBar onSubmission={this.onSearchSubmit} />
         <ImageList images={this.state.images} />
       </div>
