@@ -1,0 +1,20 @@
+.image-list {
+  display: grid;
+  /* grid-template-columns decides how many columns the grid will have. By putting "auto-fill" the browser will automatically determines how many columns
+  
+  minmax(250px, 1fr) means that each column will be 250 pixels wide and 1fr means that for every column we create, we want them to be equally sized
+  */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  /* spaces out each cell in the grid by 10 pixels from the sides and top and bottom 
+  
+  0 pixels between each row
+  */
+  grid-gap: 0 10px;
+  /* Says how tall every cell in each row will be */
+  grid-auto-rows: 10px;
+}
+
+.image-list img {
+  width: 250px;
+  grid-row-end: span 2;
+}
